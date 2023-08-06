@@ -12,7 +12,7 @@ namespace FoodFiesta.Infrastructure.Filters
     {
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            if(context.ModelState.IsValid)//geçersiz bir durum varsa
+            if(!context.ModelState.IsValid)//geçersiz bir durum varsa
             {
                 var errors = context.ModelState
                     .Where(x => x.Value.Errors.Any())
